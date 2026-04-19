@@ -9,6 +9,12 @@ This repository hosts the contents of the presentation and its complimentary
 flake and devenv configuration to replicate the tools and configuration used for
 the presentation itself.
 
+> [!NOTE]
+>
+> You can have a sense (with no videos, transitions, pauses nor interactivity)
+> of how the presentation would appear by looking at its
+> [exported pdf version](https://raw.githubusercontent.com/de-abreu/sensors-presentation/refs/heads/main/embedded-systems-presentation.pdf).
+
 ## How to run
 
 ### Using [Nix Flakes](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html)
