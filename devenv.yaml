@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://devenv.sh/devenv.schema.json
 inputs:
   nixpkgs:
-    url: github:NixOS/nixpkgs/nixos-25.11-small
+    url: github:nixos/nixpkgs/4bd9165a9165d7b5e33ae57f3eecbcb28fb231c9
 
 # If you're using non-OSS software, you can set allowUnfree to true.
 # allowUnfree: true

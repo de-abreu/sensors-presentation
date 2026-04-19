@@ -2,7 +2,7 @@
   description = "CMOS Imaging Sensors: Digital Cameras for Astrophotography - Presentation";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11-small";
+    nixpkgs.url = "github:nixos/nixpkgs/4bd9165a9165d7b5e33ae57f3eecbcb28fb231c9";
     devenv.url = "github:cachix/devenv";
   };
 
