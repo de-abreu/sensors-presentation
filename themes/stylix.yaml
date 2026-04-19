@@ -52,8 +52,7 @@ execution_output:
       foreground: 87c05f
 extends: dark
 footer:
-  right: '{current_slide} / {total_slides}'
-  style: template
+  style: empty
 headings:
   h1:
     colors:
