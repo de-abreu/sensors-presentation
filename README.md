@@ -54,3 +54,14 @@ fit:
 | yt-dlp      | 2026.03.17 |
 | ffmpeg      | 8.0        |
 | imagemagick | 7.1.2-18   |
+
+## Theming
+
+To change the
+[presentation theming](https://mfontanini.github.io/presenterm/features/themes/introduction.html)
+you can specify a theme to use like so:
+
+- `nix run github:de-abreu/sensors-presentation -- gruvbox-dark`
+- or `devenv shell -- run gruvbox-dark`
+
+Where `gruvbox-dark` is the theme name.

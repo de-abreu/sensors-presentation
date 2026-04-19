@@ -20,6 +20,10 @@
   ];
 
   scripts.run.exec = ''
-    presenterm --config-file "${config.devenv.root}/config.yaml" "${config.devenv.root}/embedded-systems-presentation.md"
+    theme_args=""
+    if [ -n "$1" ]; then
+      theme_args="--theme $1"
+    fi
+    presenterm --config-file "${config.devenv.root}/config.yaml" $theme_args "${config.devenv.root}/embedded-systems-presentation.md"
   '';
 }
