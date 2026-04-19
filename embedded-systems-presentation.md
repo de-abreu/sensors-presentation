@@ -4,10 +4,7 @@ sub_title: "Digital Cameras for Astrophotography"
 author: Guilherme de Abreu (de_abreu@usp.br)
 date: 15-04-2026
 theme:
-  override:
-    headings:
-    footer:
-      style: "empty"
+  path: ./themes/stylix.yaml
 ---
 
 <!-- column_layout: [1, 3] -->
