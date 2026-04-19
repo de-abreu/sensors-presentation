@@ -1,5 +1,5 @@
 ---
-title: "**CMOS Sensors**"
+title: "**CMOS Imaging Sensors**"
 sub_title: "Digital Cameras for Astrophotography"
 author: Guilherme de Abreu (de_abreu@usp.br)
 date: 15-04-2026
