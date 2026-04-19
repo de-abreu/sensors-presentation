@@ -73,8 +73,7 @@ A specialized manufacturer of amateur stargazing and astrophotography gear.
 
 ![image:width:100%](./imgs/assembly.gif)
 
-> Setup of an astrophotography rig. Source:
-> https://www.youtube.com/watch?v=XZyhJctKs0Y
+> Setup of an astrophotography rig. Source: https://www.youtube.com/watch?v=XZyhJctKs0Y
 
 ---
 

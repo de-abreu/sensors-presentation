@@ -2,9 +2,12 @@
 
 # CMOS Imaging Sensors: Digital Cameras for Astrophotography
 
-> A presentation held at the Timișoara Polytechnic University in 21 of April, 2026
+> A presentation held at the Timișoara Polytechnic University in 21 of April,
+> 2026
 
-This repository contains the contents of the presentation and its complimentary flake and devenv configuration to replicate the tools and configuration used for the presentation itself.
+This repository hosts the contents of the presentation and its complimentary
+flake and devenv configuration to replicate the tools and configuration used for
+the presentation itself.
 
 ## How to run
 
@@ -14,6 +17,11 @@ This repository contains the contents of the presentation and its complimentary 
 nix run github:de-abreu/sensors-presentation
 ```
 
+> [!NOTE]
+>
+> This way all data will be stored in your nix-store and later garbage collected
+> automatically (if garbage collection is setup).
+
 ### Using [devenv](https://devenv.sh/)
 
 ```bash
@@ -21,3 +29,22 @@ git clone github:de-abreu/sensors-presentation \
 && cd sensors-presentation \
 && devenv shell -- run
 ```
+
+> [!NOTE]
+>
+> To enter a development environment instead of just running the presentation,
+> drop the `-- run` when using `devenv shell`.
+
+### Using whichever package manager is supported by your distribution
+
+These are the dependencies of this project, for you to install however you see
+fit:
+
+| Package     | Version    |
+| :---------- | :--------- |
+| presenterm  | 0.15.1     |
+| python      | 3.11.15    |
+| weasyprint  | 68.0       |
+| yt-dlp      | 2026.03.17 |
+| ffmpeg      | 8.0        |
+| imagemagick | 7.1.2-18   |
