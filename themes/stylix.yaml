@@ -1,0 +1,120 @@
+alert:
+  base_colors:
+    background: 1e222a
+    foreground: 9b9fa9
+  prefix: '▍ '
+  styles:
+    caution:
+      color: ff838b
+    important:
+      color: dd97f1
+    note:
+      color: 5eb7ff
+    tip:
+      color: 87c05f
+    warning:
+      color: f5983a
+block_quote:
+  colors:
+    background: 1e222a
+    foreground: 9b9fa9
+  prefix: '▍ '
+code:
+  alignment: center
+  background: false
+  minimum_margin:
+    percent: 8
+  minimum_size: 50
+  padding:
+    horizontal: 2
+    vertical: 1
+  theme_name: base16-stylix
+d2:
+  theme: 200
+default:
+  colors:
+    background: 1a1d23
+    foreground: adb0bb
+  margin:
+    percent: 8
+execution_output:
+  colors:
+    background: 1e222a
+    foreground: adb0bb
+  status:
+    failure:
+      foreground: ff838b
+    not_started:
+      foreground: f5983a
+    running:
+      foreground: 4ac2b8
+    success:
+      foreground: 87c05f
+extends: dark
+footer:
+  right: '{current_slide} / {total_slides}'
+  style: template
+headings:
+  h1:
+    colors:
+      foreground: ff838b
+    prefix: ██
+  h2:
+    colors:
+      foreground: f5983a
+    prefix: ▓▓▓
+  h3:
+    colors:
+      foreground: 87c05f
+    prefix: ▒▒▒▒
+  h4:
+    colors:
+      foreground: 4ac2b8
+    prefix: ░░░░░
+  h5:
+    colors:
+      foreground: 5eb7ff
+    prefix: ░░░░░░
+  h6:
+    colors:
+      foreground: dd97f1
+    prefix: ░░░░░░░
+inline_code:
+  colors:
+    background: 26343f
+    foreground: 87c05f
+intro_slide:
+  author:
+    alignment: center
+    colors:
+      foreground: 9b9fa9
+    positioning: page_bottom
+  subtitle:
+    alignment: center
+    colors:
+      foreground: 4ac2b8
+  title:
+    alignment: center
+    colors:
+      foreground: 5eb7ff
+    font_size: 2
+layout_grid:
+  color: 5eb7ff
+mermaid:
+  background: transparent
+  theme: dark
+modals:
+  selection_colors:
+    foreground: f5983a
+slide_title:
+  alignment: center
+  bold: true
+  colors:
+    foreground: dd97f1
+  font_size: 2
+  padding_bottom: 1
+  padding_top: 1
+typst:
+  colors:
+    background: 1e222a
+    foreground: 9b9fa9
