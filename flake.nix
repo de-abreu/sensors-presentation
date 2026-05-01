@@ -3,54 +3,61 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/b86751bc4085f48661017fa226dee99fab6c651b";
-    devenv.url = "github:cachix/devenv";
+    systems.url = "github:nix-systems/default";
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      devenv,
+      systems,
       ...
-    }@inputs:
+    }:
     let
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
-      forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
+      forEachSystem =
+        f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
+
+      runtimePackages =
+        pkgs: with pkgs; [
+          presenterm
+          python3Packages.weasyprint
+          yt-dlp
+          ffmpeg
+          imagemagick
+        ];
     in
     {
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          default = devenv.lib.mkShell {
-            inherit inputs pkgs;
-            modules = [ ./devenv.nix ];
-          };
-        }
-      );
+      devShells = forEachSystem (pkgs: {
+        default = pkgs.mkShell {
+          buildInputs = runtimePackages pkgs;
+        };
+      });
 
-      apps = forAllSystems (
-        system:
+      apps = forEachSystem (
+        pkgs:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
+          packages = runtimePackages pkgs;
         in
         {
           default = {
             type = "app";
             program = toString (
               pkgs.writeShellScript "run-presentation" ''
-                theme_args=""
-                if [ -n "$1" ]; then
-                  theme_args="--theme $1"
+                export PATH="${pkgs.lib.makeBinPath packages}:$PATH"
+
+                has_config=""
+                for arg in "$@"; do
+                  if [ "$arg" = "--config-file" ]; then
+                    has_config=1
+                    break
+                  fi
+                done
+
+                if [ -z "$has_config" ]; then
+                  set -- --config-file ${self}/config.yaml "$@"
                 fi
-                ${pkgs.presenterm}/bin/presenterm --config-file ${self}/config.yaml $theme_args ${self}/embedded-systems-presentation.md
+
+                exec presenterm "$@" "$PWD/presentation.md"
               ''
             );
           };

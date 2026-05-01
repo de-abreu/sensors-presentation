@@ -6,8 +6,8 @@
 > 2026
 
 This repository hosts the contents of the presentation and its complimentary
-flake and devenv configuration to replicate the tools and configuration used for
-the presentation itself.
+flake configuration to replicate the tools and configuration used for the
+presentation itself.
 
 > [!NOTE]
 >
@@ -17,51 +17,54 @@ the presentation itself.
 
 ## How to run
 
-### Using [Nix Flakes](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html)
+### Using Nix Flakes
+
+With [nix installed](https://nixos.org/download/) and
+[flakes enabled](https://nixos.wiki/wiki/flakes), execute the following commands
+in your terminal:
 
 ```bash
-nix run github:de-abreu/sensors-presentation
+git clone https://github.com/de-abreu/sensors-presentation.git
+cd sensors-presentation
+nix develop
+run-presentation
+```
+
+You might also setup presenterm options as arguments:
+
+```bash
+run-presentation --theme gruvbox-dark
 ```
 
 > [!NOTE]
 >
-> This way all data will be stored in your nix-store and later garbage collected
-> automatically (if garbage collection is setup).
-
-### Using [devenv](https://devenv.sh/)
-
-```bash
-git clone github:de-abreu/sensors-presentation \
-&& cd sensors-presentation \
-&& devenv shell -- run
-```
-
-> [!NOTE]
->
-> To enter a development environment instead of just running the presentation,
-> drop the `-- run` when using `devenv shell`.
+> For more information on presenterm options, check `presenterm --help`
 
 ### Using whichever package manager is supported by your distribution
 
 These are the dependencies of this project, for you to install however you see
-fit:
+fit.
 
-| Package     | Version    |
-| :---------- | :--------- |
-| presenterm  | 0.15.1     |
-| python      | 3.11.15    |
-| weasyprint  | 68.0       |
-| yt-dlp      | 2026.03.17 |
-| ffmpeg      | 8.0        |
-| imagemagick | 7.1.2-18   |
+#### Obligatory
 
-## Theming
+| Package    | Version |
+| :--------- | :------ |
+| presenterm | 0.15.1  |
 
-To change the
-[presentation theming](https://mfontanini.github.io/presenterm/features/themes/introduction.html)
-you can specify a theme to use like so:
+#### Optional
 
-- `nix run github:de-abreu/sensors-presentation -- gruvbox-dark`
-- or `devenv shell -- run gruvbox-dark`
+If you would like to
+[export pdfs of the presentation](https://mfontanini.github.io/presenterm/features/exports.html?highlight=export#exporting-presentations)
 
-Where `gruvbox-dark` is the theme name.
+| Package    | Version |
+| :--------- | :------ |
+| python     | 3.11.15 |
+| weasyprint | 68.0    |
+
+#### Cloning the repository and launching the presentation
+
+```bash
+git clone https://github.com/de-abreu/sensors-presentation.git
+cd sensors-presentation
+presenterm --config-file config.yaml presentation.md
+```
